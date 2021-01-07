@@ -1,0 +1,36 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Oculus Quest Demo</title>
+  <meta name="description" content="Oculus Quest Demo">
+  <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@7b3f4b5a611f13ce1e8d69ed4d670e3b95a0243d/dist/aframe-master.min.js"></script>
+  <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+  <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
+  <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
+  <!-- A-Frameのハンドトラッキングによるpinch(人差し指と親指)による動作の検知 -->
+  <script src="pinchable.js"></script>
+  <!-- A-Frameのハンドトラッキングによるpinch中に接触しているオブジェクトの移動 -->
+  <script src="obj-move.js"></script>
+</head>
+<body>
+  <a-scene physics="debug: false; gravity: 0; restitution: 0.9; " background="color: #AAAAAA">
+    <a-entity
+        id="boxGeometry"
+        position="0.3 1.0 -0.5"
+        rotation="0 0 0"
+        geometry="primitive: box; height: 0.6; width: 0.6; depth: 0.6"
+        material="color: #0000ff"
+        obj-move
+        scale="0.1 0.1 0.1"
+      ></a-entity>
+      </a-entity> -->
+    <a-entity id="cameraRig">
+      <a-entity id="head" camera wasd-controls look-controls position="0 1.6 0">
+      </a-entity>
+      <a-entity id="left-hand" hand-tracking-controls="hand: left" input-listener></a-entity>
+      <a-entity id="right-hand" hand-tracking-controls="hand: right" input-listener></a-entity>  
+    </a-entity>
+  </a-scene>
+</body>
+</html>
+
